@@ -9,6 +9,8 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import com.example.jetpack.ext.jump
+import com.example.jetpack.ext.jumpWithParams
 import com.example.permissionx.PermissionX
 
 class MainActivity : AppCompatActivity() {
@@ -38,6 +40,11 @@ class MainActivity : AppCompatActivity() {
         val addLater = findViewById<Button>(R.id.add_later)
         addLater.setOnClickListener {
             viewModel.plusLater()
+//            jump<JumpActivity>()
+            jumpWithParams<JumpActivity> {
+                putExtra("name", "John")
+                putExtra("age", 18)
+            }
         }
     }
 
